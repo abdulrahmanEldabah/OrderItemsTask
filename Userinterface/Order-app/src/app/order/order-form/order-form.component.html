@@ -1,0 +1,86 @@
+<div class="container">
+  <h2>Submit Item Order</h2>
+
+  <!-- Order Form -->
+  <form [formGroup]="orderForm" (ngSubmit)="addItemToOrder()" class="form-container">
+
+    <!-- Item selection -->
+    <label for="item">Item:</label>
+    <select formControlName="itemId" id="item" required>
+      <option value="">-- Select Item --</option>
+      <option *ngFor="let item of items" [value]="item.id">{{ item.name }} - ${{ item.price }}</option>
+    </select>
+    <div *ngIf="orderForm.get('itemId')?.invalid && orderForm.get('itemId')?.touched" class="error">
+      Item is required.
+    </div>
+
+    <!-- Quantity -->
+    <label for="quantity">Quantity:</label>
+    <input type="number" formControlName="quantity" id="quantity" min="1" required />
+    <div *ngIf="orderForm.get('quantity')?.invalid && orderForm.get('quantity')?.touched" class="error">
+      Quantity must be at least 1.
+    </div>
+
+    <!-- Add Item to local order list -->
+    <button type="submit" [disabled]="orderForm.invalid">Add Item</button>
+  </form>
+
+  <hr />
+
+  <!-- Display Order Items -->
+  <h3>🧾 Current Order</h3>
+  <div *ngIf="!orderItems?.length">
+    <p>No items in the order yet. Add items to create an order.</p>
+  </div>
+  <table  class="order-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orderItems; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.itemName }}</td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Save Order Button -->
+  <button *ngIf="orderItems.length > 0" (click)="submitOrder()">Save Order</button>
+</div>
+<hr />
+
+<!-- Saved Orders Grid -->
+<h3>Saved Orders</h3>
+<table *ngIf="savedOrders.length > 0" class="order-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Order Number</th>
+      <th>Total Price</th>
+      <th>Items</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of savedOrders; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ order.orderNumber }}</td>
+      <td>${{ order.totalPrice }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let item of order.orderItems">
+            {{ item.itemName }} x {{ item.quantity }} = ${{ item.total }}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

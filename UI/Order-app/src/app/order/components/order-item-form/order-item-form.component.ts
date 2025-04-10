@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Item, OrderItem } from 'src/app/order/services/order.service';
 
 @Component({
@@ -19,7 +19,10 @@ export class OrderItemFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Debug log to ensure form is initialized
+    console.log(this.orderForm);
+  }
 
   addItemToOrder() {
     if (this.orderForm.invalid) return;

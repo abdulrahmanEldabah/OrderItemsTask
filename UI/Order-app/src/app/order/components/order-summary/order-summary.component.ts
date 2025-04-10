@@ -24,5 +24,7 @@ export class OrderSummaryComponent {
   deleteItem(index: number) {
     this.orderItems.splice(index, 1);
   }
-  
+  clearAllItems() {
+    this.orderItems = [];
+  }
 }

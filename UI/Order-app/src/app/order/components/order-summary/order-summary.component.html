@@ -1,12 +1,9 @@
-
-
-<!-- Current Order -->
 <div class="box">
   <h3>🧾 Current Order</h3>
 
   <div *ngIf="!orderItems.length" class="empty">No items added.</div>
 
-  <table *ngIf="orderItems.length">
+  <table *ngIf="orderItems.length" class="lined-table">
     <thead>
       <tr>
         <th>#</th>
@@ -14,6 +11,7 @@
         <th>Price</th>
         <th>Qty</th>
         <th>Total</th>
+        <th>Action</th> <!-- New column -->
       </tr>
     </thead>
     <tbody>
@@ -23,6 +21,9 @@
         <td>${{ item.price }}</td>
         <td>{{ item.quantity }}</td>
         <td>${{ item.total }}</td>
+        <td>
+          <button (click)="deleteItem(i)" class="delete-btn">🗑️</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -37,7 +38,7 @@
   <h3>📦 Saved Orders</h3>
   <div *ngIf="!savedOrders.length" class="empty">No saved orders.</div>
 
-  <table *ngIf="savedOrders.length">
+  <table *ngIf="savedOrders.length" class="lined-table">
     <thead>
       <tr>
         <th>#</th>

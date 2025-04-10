@@ -1,4 +1,7 @@
+<!-- Order Form -->
 <form [formGroup]="orderForm" (ngSubmit)="addItemToOrder()" class="simple-form">
+  <h3>🛒 Add Item to Order</h3>
+
   <div class="form-row">
     <select formControlName="itemId" required>
       <option value="">-- Select Item --</option>

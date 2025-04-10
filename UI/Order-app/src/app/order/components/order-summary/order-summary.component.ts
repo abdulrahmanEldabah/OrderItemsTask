@@ -21,4 +21,8 @@ export class OrderSummaryComponent {
 
     this.orderSubmitted.emit(order);
   }
+  deleteItem(index: number) {
+    this.orderItems.splice(index, 1);
+  }
+  
 }

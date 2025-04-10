@@ -62,4 +62,23 @@
     padding: 0.5rem;
     text-align: left;
   }
+  .lined-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    border: 1px solid #999;
+  }
+  
+  .lined-table th,
+  .lined-table td {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  
+  .lined-table ul {
+    margin: 0;
+    padding-left: 1rem;
+  }
   

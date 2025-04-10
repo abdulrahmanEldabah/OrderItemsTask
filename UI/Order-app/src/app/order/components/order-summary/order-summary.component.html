@@ -1,0 +1,64 @@
+
+
+<!-- Current Order -->
+<div class="box">
+  <h3>🧾 Current Order</h3>
+
+  <div *ngIf="!orderItems.length" class="empty">No items added.</div>
+
+  <table *ngIf="orderItems.length">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of orderItems; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.itemName }}</td>
+        <td>${{ item.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-right" *ngIf="orderItems.length">
+    <button (click)="submitOrder()" class="save-btn">💾 Save Order</button>
+  </div>
+</div>
+
+<!-- Saved Orders -->
+<div class="box">
+  <h3>📦 Saved Orders</h3>
+  <div *ngIf="!savedOrders.length" class="empty">No saved orders.</div>
+
+  <table *ngIf="savedOrders.length">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Order #</th>
+        <th>Total</th>
+        <th>Items</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of savedOrders; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>#{{ order.orderNumber }}</td>
+        <td>${{ order.totalPrice }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of order.orderItems">
+              {{ item.itemName }} x {{ item.quantity }} = ${{ item.total }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

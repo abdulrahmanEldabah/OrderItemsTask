@@ -29,4 +29,7 @@ export class OrderFormComponent implements OnInit {
       this.orderItems = [];
     });
   }
+  clearOrderItems() {
+    this.orderItems = [];
+  }
 }

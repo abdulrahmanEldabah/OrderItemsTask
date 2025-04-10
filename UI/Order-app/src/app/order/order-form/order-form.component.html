@@ -11,6 +11,7 @@
   <app-order-summary
     [orderItems]="orderItems"
     [savedOrders]="savedOrders"
-    (orderSubmitted)="onOrderSubmitted($event)">
+    (orderSubmitted)="onOrderSubmitted($event)"
+    (clearItems)="clearOrderItems()">
   </app-order-summary>
 </div>

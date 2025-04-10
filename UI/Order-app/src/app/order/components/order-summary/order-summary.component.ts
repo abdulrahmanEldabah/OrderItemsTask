@@ -10,6 +10,7 @@ export class OrderSummaryComponent {
   @Input() orderItems: OrderItem[] = [];
   @Input() savedOrders: Order[] = [];
   @Output() orderSubmitted = new EventEmitter<Order>();
+  @Output() clearItems = new EventEmitter<void>();
 
   submitOrder() {
     if (!this.orderItems.length) return;
@@ -26,6 +27,6 @@ export class OrderSummaryComponent {
     this.orderItems.splice(index, 1);
   }
   clearAllItems() {
-    this.orderItems = [];
+    this.clearItems.emit();
   }
 }

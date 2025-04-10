@@ -3,6 +3,7 @@ import { OrderItem, Order } from 'src/app/order/services/order.service';
 
 @Component({
   selector: 'app-order-summary',
+  styleUrls: ['./order-summary.component.css'],
   templateUrl: './order-summary.component.html',
 })
 export class OrderSummaryComponent {

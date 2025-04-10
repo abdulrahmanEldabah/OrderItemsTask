@@ -18,4 +18,52 @@
     cursor: pointer;
     border-radius: 4px;
   }
+  /* Container for the buttons (right-aligned) */
+.text-right {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  /* Style for the Save Order button */
+  .save-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  .save-btn:disabled {
+    background-color: #d3d3d3; /* Light grey when disabled */
+    cursor: not-allowed; /* Disabled cursor */
+  }
+  
+  /* Style for the Clear All button */
+  .clear-btn {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    margin-left: 10px; /* Space between the buttons */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .clear-btn:hover {
+    background-color: #e53935; /* Darker red on hover */
+  }
+  
+  .clear-btn:disabled {
+    background-color: #d3d3d3; /* Light grey when disabled */
+    cursor: not-allowed; /* Disabled cursor */
+  }
   
